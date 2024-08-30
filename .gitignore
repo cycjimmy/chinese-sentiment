@@ -54,8 +54,5 @@ node_modules/
 *.log
 
 # project
-.publish/
-dist/
-temp/
-coverage/
 .release/
+src/dictionary/

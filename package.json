@@ -4,10 +4,11 @@
   "description": "Chinese sentiment analysis for Node",
   "main": "src/index.js",
   "scripts": {
-    "test": "node ./__test__/index.test.js",
+    "test": "npm run dict:handle && node ./__test__/index.test.js",
     "lint": "eslint --ext .js,.cjs,.mjs -c .eslintrc .",
     "lint:fix": "eslint --ext .js,.cjs,.mjs --fix -c .eslintrc . --fix",
-    "package": "trash .release && node tasks/copyFiles.js && node tasks/handlePackageJson.js"
+    "dict:handle": "trash src/dictionary && node tasks/dictionaryHanding.js",
+    "package": "trash .release && npm run dict:handle && node tasks/copyFiles.js && node tasks/handlePackageJson.js"
   },
   "repository": {
     "type": "git",
