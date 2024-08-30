@@ -1,0 +1,59 @@
+name: Test CI
+on:
+  push:
+
+  pull_request:
+    branches:
+      - master
+      - main
+      - next
+      - next-major
+      - alpha
+      - beta
+
+  schedule:
+    - cron: 0 2 * * 0
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node: [ 18 ]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm test
+      - run: npm run package
+
+      - name: Semantic Release Test
+        uses: cycjimmy/semantic-release-action@v4
+        with:
+          dry_run: true
+          branches: |
+            [
+              'master',
+              'main',
+              'next',
+              'next-major',
+              {
+                name: 'beta',
+                prerelease: true
+              },
+              {
+                name: 'alpha',
+                prerelease: true
+              }
+            ]
+          extra_plugins: |
+            @semantic-release/git
+            @semantic-release/changelog
+            @semantic-release/exec
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

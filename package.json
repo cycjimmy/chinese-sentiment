@@ -1,0 +1,43 @@
+{
+  "name": "@cycjimmy/chinese-sentiment",
+  "version": "0.0.1",
+  "description": "Chinese sentiment analysis for Node",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node ./__test__/index.test.js",
+    "lint": "eslint --ext .js,.cjs,.mjs -c .eslintrc .",
+    "lint:fix": "eslint --ext .js,.cjs,.mjs --fix -c .eslintrc . --fix",
+    "package": "trash .release && node tasks/copyFiles.js && node tasks/handlePackageJson.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cycjimmy/chinese-sentiment.git"
+  },
+  "keywords": [
+    "chinese",
+    "sentiment"
+  ],
+  "author": "cycjimmy <cycjimmy@gmail.com> (https://github.com/cycjimmy)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cycjimmy/chinese-sentiment/issues"
+  },
+  "homepage": "https://github.com/cycjimmy/chinese-sentiment#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "dependencies": {
+    "nodejieba": "^3.4.2"
+  },
+  "devDependencies": {
+    "@cycjimmy/config-lib": "^3.2.1",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "fs-extra": "^11.2.0",
+    "trash-cli": "^5.0.0"
+  }
+}
