@@ -1,8 +1,5 @@
 # chinese-sentiment
 
-[![NPM latest version][npm-latest-image]][npm-url]
-[![NPM bundle size][npm-bundle-size-image]][npm-url]
-[![npm download][download-image]][download-url]
 ![][workflows-badge-image]
 [![libraries dependency status][libraries-status-image]][libraries-status-url]
 [![libraries sourcerank][libraries-sourcerank-image]][libraries-sourcerank-url]
@@ -12,10 +9,29 @@
 
 Chinese sentiment analysis for Node. **Currently under testing.**
 
+## How to use
+### Install
+[![NPM latest version][npm-latest-image]][npm-url]
+[![npm download][download-image]][download-url]
+
+```shell
+$ npm install @cycjimmy/chinese-sentiment --save
+```
+
+### Usage
+```javascript
+const cnSenti = require('@cycjimmy/chinese-sentiment');
+
+const sentiment = cnSenti('需要分析的文本');
+console.log(sentiment); 
+// output: { ... }
+// Currently under testing.
+// The returned results are mainly based on the actual version.
+```
+
 <!-- Links: -->
 [npm-latest-image]: https://img.shields.io/npm/v/@cycjimmy/chinese-sentiment/latest
 [npm-url]: https://npmjs.org/package/@cycjimmy/chinese-sentiment
-[npm-bundle-size-image]: https://img.shields.io/bundlephobia/min/@cycjimmy/chinese-sentiment
 
 [download-image]: https://img.shields.io/npm/dt/@cycjimmy/chinese-sentiment
 [download-url]: https://npmjs.org/package/@cycjimmy/chinese-sentiment
