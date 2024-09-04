@@ -15,3 +15,8 @@ const text3 = '悲伤犹如深渊，将我的灵魂吞噬，让我感到无尽�
 console.log(`测试文本: ${text3}`);
 console.table(sentiment(text3));
 console.log('');
+
+const text4 = '伏明霞介绍女儿给潘展乐认识，还让自己儿女和潘展乐等人合影。伏明霞的孩子全都到场，这次三个孩子还专门和潘展乐几位游泳冠军合了影，她两个儿子都非常的帅气。 ​';
+console.log(`测试文本: ${text4}`);
+console.table(sentiment(text4));
+console.log('');
