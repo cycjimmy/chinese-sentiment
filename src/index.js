@@ -1,17 +1,20 @@
-const sentiment = require('./sentiment');
-const sentimentScoreCalculate = require('./sentimentScoreCalculate');
-const dictionDUTIR = require('./dictionary/DUTIR.json').DUTIR;
-const dictionHOWNET = require('./dictionary/HOWNET.json').HOWNET;
+const dictAnalysis = require('./dictAnalysis');
+const hownetScoreCalc = require('./hownetScoreCalc');
+const bosonNlpScoreCalc = require('./bosonNlpScoreCalc');
 
 /**
  * sentiment
  * @param text
  * @returns {{}}
  */
-module.exports = (text) => ({
-  ...sentiment(text, [
-    dictionDUTIR,
-    dictionHOWNET,
-  ]),
-  ...sentimentScoreCalculate(text),
-});
+module.exports = (text) => {
+  const result = {
+    ...dictAnalysis(text),
+  };
+  result.HOWNET = {
+    ...result.HOWNET,
+    ...hownetScoreCalc(text),
+  };
+  result.BosonNLP = bosonNlpScoreCalc(text);
+  return result;
+};

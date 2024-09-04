@@ -1,4 +1,5 @@
 const jieba = require('nodejieba');
+const { default: entries } = require('@cycjimmy/awesome-js-funcs/cjs/object/entries.cjs');
 
 const dictionDUTIR = require('./dictionary/DUTIR.json').DUTIR;
 const dictionHOWNET = require('./dictionary/HOWNET.json').HOWNET;
@@ -6,23 +7,24 @@ const dictionChineseSTOPWORDS = require('./dictionary/STOPWORDS.json').STOPWORDS
 const sentenceSegment = require('./utils/sentenceSegment');
 
 /**
- * sentiment
+ * dictAnalysis
  * @param text
  * @param dictionaries
  * @returns {{}}
  */
-module.exports = (text = '', dictionaries = [
-  dictionDUTIR,
-  dictionHOWNET,
-]) => {
+module.exports = (text = '', dictionaries = {
+  DUTIR: dictionDUTIR,
+  HOWNET: dictionHOWNET,
+}) => {
   const sentences = sentenceSegment(text);
   const result = {};
 
-  dictionaries.forEach((diction) => {
+  entries(dictionaries).forEach(([dictionaryName, diction]) => {
+    result[dictionaryName] = {};
     const sentiCategories = Object.keys(diction);
 
     sentiCategories.forEach((sentiCategory) => {
-      result[sentiCategory] = 0; // 初始值初始化
+      result[dictionaryName][sentiCategory] = 0; // 初始值初始化
 
       const dictWords = diction[sentiCategory];
       dictWords.forEach((word) => {
@@ -43,12 +45,12 @@ module.exports = (text = '', dictionaries = [
       stopwords += 1;
     }
 
-    dictionaries.forEach((diction) => {
+    entries(dictionaries).forEach(([dictionaryName, diction]) => {
       const sentiCategories = Object.keys(diction);
 
       sentiCategories.forEach((sentiCategory) => {
         if (diction[sentiCategory].includes(word)) {
-          result[sentiCategory] += 1;
+          result[dictionaryName][sentiCategory] += 1;
         }
       });
     });

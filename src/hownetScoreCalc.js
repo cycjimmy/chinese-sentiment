@@ -25,7 +25,7 @@ sentiCategories.forEach((sentiCategory) => {
 });
 
 /**
- * sentimentScoreCalculate
+ * hownetScoreCalculate
  * @param text
  * @returns {{negScore: *, posScore: *}}
  */
@@ -56,7 +56,7 @@ module.exports = (text) => {
           else if (dictWords.deny.includes(w)) c += 1;
         });
         if (judgeOdd(c)) {
-          posCount *= -1.0;
+          posCount *= -1;
           posCount2 += posCount;
           posCount3 = posCount2 + posCount3;
           posCount2 = 0;
@@ -76,7 +76,7 @@ module.exports = (text) => {
           else if (dictWords.deny.includes(w)) d += 1;
         });
         if (judgeOdd(d)) {
-          negCount *= -1.0;
+          negCount *= -1;
           negCount2 += negCount;
           negCount3 = negCount2 + negCount3;
           negCount2 = 0;

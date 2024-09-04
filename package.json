@@ -7,7 +7,7 @@
     "test": "npm run dict:handle && node ./__test__/index.test.js",
     "lint": "eslint --ext .js,.cjs,.mjs -c .eslintrc .",
     "lint:fix": "eslint --ext .js,.cjs,.mjs --fix -c .eslintrc . --fix",
-    "dict:handle": "trash src/dictionary && node tasks/dictionaryHanding.js",
+    "dict:handle": "trash src/dictionary && node tasks/dictionaryHanding.js && node tasks/bosonNlpDataHanding.js",
     "package": "trash .release && npm run dict:handle && node tasks/copyFiles.js && node tasks/handlePackageJson.js"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "node": ">=12"
   },
   "dependencies": {
+    "@cycjimmy/awesome-js-funcs": "^4.0.9",
     "nodejieba": "^3.4.2"
   },
   "devDependencies": {
