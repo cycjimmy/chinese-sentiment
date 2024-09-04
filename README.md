@@ -41,7 +41,7 @@ console.log(sentiment);
 [libraries-status-image]: https://img.shields.io/librariesio/release/npm/@cycjimmy/chinese-sentiment
 [libraries-sourcerank-image]: https://img.shields.io/librariesio/sourcerank/npm/@cycjimmy/chinese-sentiment
 [libraries-status-url]: https://libraries.io/github/cycjimmy/chinese-sentiment
-[libraries-sourcerank-url]: https://libraries.io/npm/@cycjimmy%2Fhello-github-package-npm
+[libraries-sourcerank-url]: https://libraries.io/npm/@cycjimmy%2Fchinese-sentiment
 
 [release-date-image]: https://img.shields.io/github/release-date/cycjimmy/chinese-sentiment
 [release-url]: https://github.com/cycjimmy/chinese-sentiment/releases
