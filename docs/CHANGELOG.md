@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/cycjimmy/chinese-sentiment/compare/v1.1.0...v2.0.0) (2024-09-04)
+
+
+### Features
+
+* add bosonNlpScoreCalc ([e08fbd1](https://github.com/cycjimmy/chinese-sentiment/commit/e08fbd109081b45313758009d07ccf05f029e501))
+
+
+### BREAKING CHANGES
+
+* returned data structure changes
+
 # [1.1.0](https://github.com/cycjimmy/chinese-sentiment/compare/v1.0.0...v1.1.0) (2024-08-30)
 
 
