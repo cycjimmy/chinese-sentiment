@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/cycjimmy/chinese-sentiment/compare/v2.0.0...v2.0.1) (2024-09-04)
+
+
+### Bug Fixes
+
+* fix the cut sentence is empty ([c45b221](https://github.com/cycjimmy/chinese-sentiment/commit/c45b221f754d12e17130480a6f2292d8a5ecaf6b))
+
 # [2.0.0](https://github.com/cycjimmy/chinese-sentiment/compare/v1.1.0...v2.0.0) (2024-09-04)
 
 
