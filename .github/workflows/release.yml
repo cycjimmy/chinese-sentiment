@@ -10,6 +10,13 @@ on:
       - alpha
       - beta
 
+permissions:
+  id-token: write
+  contents: write
+  issues: write
+  pull-requests: write
+  packages: write
+
 jobs:
   test:
     name: test
@@ -17,11 +24,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 24
 
       - name: Install dependencies
         run: npm ci
@@ -36,11 +45,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 24
 
       - name: Install dependencies
         run: npm ci
@@ -49,7 +60,7 @@ jobs:
         run: npm run package
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v5
+        uses: cycjimmy/semantic-release-action@v6
         id: semantic
         with:
           branches: |
@@ -74,12 +85,11 @@ jobs:
             @semantic-release/exec
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Setup Node.js with GitHub Package Registry
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 24
           registry-url: 'https://npm.pkg.github.com'
           scope: 'cycjimmy'
 
