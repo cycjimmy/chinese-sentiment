@@ -1,3 +1,16 @@
+# [3.0.0](https://github.com/cycjimmy/chinese-sentiment/compare/v2.0.2...v3.0.0) (2026-11-19)
+
+
+* feat!: rebuild the package as ESM-only TypeScript ([4811360](https://github.com/cycjimmy/chinese-sentiment/commit/48113601dbebc5060e716cac025b8ced09c5b758))
+
+
+### BREAKING CHANGES
+
+* the package is ESM-only and requires Node.js ^22.18.0 || >=24.11.0.
+The entry point moved from src/index.js to dist/index.js, TypeScript declarations
+are published, and require() now returns the module namespace - use the named
+`sentiment` export or the default export.
+
 ## [2.0.2](https://github.com/cycjimmy/chinese-sentiment/compare/v2.0.1...v2.0.2) (2024-09-04)
 
 
