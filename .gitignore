@@ -55,4 +55,7 @@ node_modules/
 
 # project
 .release/
+dist/
+coverage/
+temp/
 src/dictionary/
