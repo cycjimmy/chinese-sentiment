@@ -1,0 +1,136 @@
+[
+  {
+    "DUTIR": {
+      "乐": 2,
+      "好": 0,
+      "怒": 0,
+      "哀": 0,
+      "惧": 0,
+      "恶": 0,
+      "惊": 0
+    },
+    "HOWNET": {
+      "deny": 0,
+      "extreme": 0,
+      "ish": 0,
+      "more": 0,
+      "neg": 0,
+      "pos": 3,
+      "very": 1,
+      "posScore": 35,
+      "negScore": 0
+    },
+    "stopwords": 8,
+    "words": 14,
+    "sentences": 1,
+    "BosonNLP": {
+      "score": [
+        14.2012328894203
+      ],
+      "totalScore": 14.2012328894203,
+      "averageScore": 14.2012328894203
+    }
+  },
+  {
+    "DUTIR": {
+      "乐": 2,
+      "好": 9,
+      "怒": 0,
+      "哀": 0,
+      "惧": 0,
+      "恶": 0,
+      "惊": 0
+    },
+    "HOWNET": {
+      "deny": 0,
+      "extreme": 0,
+      "ish": 0,
+      "more": 1,
+      "neg": 2,
+      "pos": 16,
+      "very": 0,
+      "posScore": 155,
+      "negScore": 24
+    },
+    "stopwords": 56,
+    "words": 173,
+    "sentences": 6,
+    "BosonNLP": {
+      "score": [
+        21.535483233347897,
+        8.5279352733504,
+        15.612752418136603,
+        0.2677712557245999,
+        12.9191576735313,
+        18.222913251912303
+      ],
+      "totalScore": 77.0860131060031,
+      "averageScore": 12.847668851000515
+    }
+  },
+  {
+    "DUTIR": {
+      "乐": 0,
+      "好": 0,
+      "怒": 0,
+      "哀": 2,
+      "惧": 0,
+      "恶": 0,
+      "惊": 0
+    },
+    "HOWNET": {
+      "deny": 0,
+      "extreme": 0,
+      "ish": 0,
+      "more": 0,
+      "neg": 3,
+      "pos": 0,
+      "very": 0,
+      "posScore": 0,
+      "negScore": 31
+    },
+    "stopwords": 9,
+    "words": 17,
+    "sentences": 1,
+    "BosonNLP": {
+      "score": [
+        -2.0099244645614003
+      ],
+      "totalScore": -2.0099244645614003,
+      "averageScore": -2.0099244645614003
+    }
+  },
+  {
+    "DUTIR": {
+      "乐": 0,
+      "好": 1,
+      "怒": 0,
+      "哀": 0,
+      "惧": 0,
+      "恶": 0,
+      "惊": 0
+    },
+    "HOWNET": {
+      "deny": 0,
+      "extreme": 1,
+      "ish": 2,
+      "more": 2,
+      "neg": 0,
+      "pos": 4,
+      "very": 0,
+      "posScore": 72,
+      "negScore": 0
+    },
+    "stopwords": 20,
+    "words": 47,
+    "sentences": 2,
+    "BosonNLP": {
+      "score": [
+        4.9089653703085,
+        9.543596937570252
+      ],
+      "totalScore": 14.45256230787875,
+      "averageScore": 7.226281153939375
+    }
+  }
+]

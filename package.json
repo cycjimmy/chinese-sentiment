@@ -1,45 +1,70 @@
 {
   "name": "@cycjimmy/chinese-sentiment",
+  "type": "module",
   "version": "2.0.2",
   "description": "Chinese sentiment analysis for Node",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "npm run dict:handle && node ./__test__/index.test.js",
-    "lint": "eslint --ext .js,.cjs,.mjs -c .eslintrc .",
-    "lint:fix": "eslint --ext .js,.cjs,.mjs --fix -c .eslintrc . --fix",
-    "dict:handle": "trash src/dictionary && node tasks/dictionaryHanding.js && node tasks/bosonNlpDataHanding.js",
-    "package": "trash .release && npm run dict:handle && node tasks/copyFiles.js && node tasks/handlePackageJson.js"
-  },
+  "author": "cycjimmy <cycjimmy@gmail.com> (https://github.com/cycjimmy)",
+  "license": "MIT",
+  "homepage": "https://github.com/cycjimmy/chinese-sentiment#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cycjimmy/chinese-sentiment.git"
+    "url": "git+https://github.com/cycjimmy/chinese-sentiment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cycjimmy/chinese-sentiment/issues"
   },
   "keywords": [
     "chinese",
     "sentiment"
   ],
-  "author": "cycjimmy <cycjimmy@gmail.com> (https://github.com/cycjimmy)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cycjimmy/chinese-sentiment/issues"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
-  "homepage": "https://github.com/cycjimmy/chinese-sentiment#readme",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "^22.18.0 || >=24.11.0"
+  },
+  "scripts": {
+    "prepare": "npm run dict:handle",
+    "dict:handle": "node tasks/dictionaryHanding.ts && node tasks/bosonNlpDataHanding.ts",
+    "type-check": "tsc --noEmit",
+    "type-check:dist": "tsc --ignoreConfig --noEmit --module nodenext --moduleResolution nodenext --target es2022 --skipLibCheck false dist/index.d.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "node tasks/removeDir.ts dist && npm run build:esm && npm run build:types && npm run build:assets",
+    "build:esm": "vite build",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build:assets": "node tasks/copyDictionaries.ts",
+    "package": "node tasks/removeDir.ts .release && npm run dict:handle && npm run build && node tasks/copyFiles.ts && node tasks/handlePackageJson.ts"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "engines": {
-    "node": ">=12"
-  },
   "dependencies": {
-    "@cycjimmy/awesome-js-funcs": "^4.0.9",
-    "nodejieba": "^3.4.2"
+    "nodejieba": "^3.5.8"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^10.0.0",
     "@cycjimmy/config-lib": "^3.2.1",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.29.1",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.15.0",
     "fs-extra": "^11.2.0",
-    "trash-cli": "^7.1.1"
+    "jiti": "^2.7.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
   }
 }
